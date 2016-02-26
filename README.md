@@ -1,7 +1,11 @@
 # Hexagons
 Hexagonal grids and tools written in Elm language.
 
-API docs
+Installation:
+    
+    elm-package install Voronchuk/hexagons
+
+* [API docs](http://package.elm-lang.org/packages/Voronchuk/hexagons/1.0.0)
 
 # Testing
 The code was based on [Red Blob Games](http://www.redblobgames.com/grids/hexagons/) material, so tests were written for documentation purposes and use-cases.
