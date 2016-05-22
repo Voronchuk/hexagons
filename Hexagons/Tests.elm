@@ -1,4 +1,4 @@
-module Hexagons.Tests where
+module Hexagons.Tests
 
 
 import String
@@ -89,11 +89,17 @@ layout =
                     <| Hexagons.Layout.hexToPoint testLayout (IntCubeHex (2, 3, -5)) == (60.62, 45.00),
                 test "Turn Point location on a Layout into a Hex coordinates" <| assert
                     <| (Hexagons.Hex.toIntHex <| Hexagons.Layout.pointToHex testLayout (60.62, 45.00)) === IntCubeHex (2, 3, -5),
+                test "Turn offset cordinates to a Hex coordinates" <| assert
+                    <| Hexagons.Layout.offsetToHex (2, 2) === IntCubeHex (1, 2, -3),
+                test "Turn Hex cordinates to an offset ones " <| assert
+                    <| Hexagons.Layout.hexToOffset (IntCubeHex (2, 2, -4)) == (3, 2),
                 test "Calculate polygon corner positions for a Hex location on a Layout" <| assert
                     <| Hexagons.Layout.polygonCorners testLayout (IntCubeHex (2, 3, -5)) == 
-                        [(8.66, 5.00), (0.00, 10.00), (-8.66, 5.00), (-8.66, -5.00), (-0.00, -10.00), (8.66, -5.00)],
+                        [(69.28,50),(60.62,55),(51.96,50),(51.96,40),(60.62,35),(69.28,40)],
                 test "Draw a line between 2 Hexes returning a list of Hex connections" <| assert
-                    <| Hexagons.Layout.drawLine (IntCubeHex (2, 3, -5)) (IntCubeHex (3, 3, -5)) == [IntCubeHex (3, 3, -6)]
+                    <| Hexagons.Layout.drawLine (IntCubeHex (2, 3, -5)) (IntCubeHex (3, 3, -5)) == [IntCubeHex (3, 3, -6)],
+                test "Draw a circle with the given radius around the Hex" <| assert
+                    <| (List.length <| Hexagons.Layout.drawCircle (IntCubeHex (2, 3, -5)) 2) == 19
             ]
             
 

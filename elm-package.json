@@ -1,11 +1,13 @@
 {
-    "version": "1.0.2",
-    "summary": "Hexagonal grids and tools",
+    "version": "2.0.0",
+    "summary": "Hexagonal grids and tools to build hex maps and layouts",
     "repository": "https://github.com/Voronchuk/hexagons.git",
     "license": "MIT",
     "source-directories": [
         ".",
-        "Hexagons"
+        "Hexagons",
+        "Character",
+        "Fatespinner"
     ],
     "exposed-modules": [
         "Hexagons.Hex",
@@ -13,10 +15,9 @@
         "Hexagons.Map"
     ],
     "dependencies": {
-        "Apanatshka/elm-signal-extra": "5.7.0 <= v < 6.0.0",
-        "deadfoxygrandpa/elm-test": "3.1.1 <= v < 4.0.0",
-        "elm-lang/core": "3.0.0 <= v < 4.0.0",
-        "laszlopandy/elm-console": "1.1.0 <= v < 2.0.0"
+        "elm-lang/core": "4.0.0 <= v < 5.0.0",
+        "elm-lang/html": "1.0.0 <= v < 2.0.0",
+        "elm-lang/svg": "1.0.0 <= v < 2.0.0"
     },
-    "elm-version": "0.16.0 <= v < 0.17.0"
+    "elm-version": "0.17.0 <= v < 0.18.0"
 }

@@ -1,4 +1,4 @@
-module Hexagons.Hex (
+module Hexagons.Hex exposing (
         Hex(..),
         Direction(..), 
         
@@ -25,7 +25,7 @@ module Hexagons.Hex (
         
         direction,
         neighbor
-    ) where
+    )
 
 {-| We treat Cube and Axial systems separately. Cube coordinates are a plane in x,y,z space, where x+y+z = 0. Axial coordinates have two axes q,r that are 60° or 120° apart. 
 
@@ -49,9 +49,6 @@ See http://www.redblobgames.com/grids/hexagons/implementation.html
 # Neighbors
 @docs direction, neighbor
 -}
-
-
-import Graphics.Element exposing (show)
 
 
 {-| Cubic coordinates -}

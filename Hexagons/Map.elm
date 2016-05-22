@@ -1,19 +1,26 @@
-module Hexagons.Map (
+module Hexagons.Map exposing (
         Map,
+        Hash,
+        
+        hashHex,
+        getHex,
         
         rectangularPointyTopMap
-    ) where
+    )
 
 {-| This module solves the problem of generating and storing the Map data. We are using Elm dictionary as the Map storage engine with Hex coordinate tuple as the key.
 
 See http://www.redblobgames.com/grids/hexagons/implementation.html for reference.
 
 # Types
-@docs Map
+@docs Map, Hash
+
+# Accessing map storage
+@docs hashHex
+@docs getHex
 
 # Map generators
 @docs rectangularPointyTopMap
-
 -}
 
 
@@ -26,7 +33,10 @@ import Hexagons.Hex exposing (Hex)
 
 
 {-| Dictionary storage to keep map of hexes -}
-type alias Map = Dict (Int, Int, Int) Hex
+type alias Map = Dict Hash Hex
+
+{-| Hash key to access Map cell -}
+type alias Hash = (Int, Int, Int)
 
 
 {-| Hash function to get a uniform token to address stored hex Hex -}
@@ -39,6 +49,11 @@ hashHex hex =
         s = Hexagons.Hex.intS hex_
     in
         (q, r, s)
+        
+{-| Fetch hex from map storage, using a default value in case of missing Hex  -}
+getHex : Hex -> Map -> Hash -> Hex
+getHex defaultHex map key =
+    Maybe.withDefault defaultHex (Dict.get key map)
 
 
 {-| Generate Map of rectangular shape given its height and width -}
@@ -64,7 +79,7 @@ rectangularPointyTopMap height width =
             List.concat
             <| List.map widthRowLine heightLine
             
-        makeDictRecord : Hex -> ((Int, Int, Int), Hex)
+        makeDictRecord : Hex -> (Hash, Hex)
         makeDictRecord hex =
             ((hashHex hex), hex)
     in
