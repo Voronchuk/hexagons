@@ -185,7 +185,7 @@ drawLine a b =
     let
         n = toFloat <| Hexagons.Hex.distance a b
         step = 1.0 / (max n 1.0)
-        steps = List.map ((+) step) [0.0..n]
+        steps = List.map ((*) step) [0.0..n]
     in
         List.map (Hexagons.Hex.toIntHex << (hexLerp a b)) steps
        
