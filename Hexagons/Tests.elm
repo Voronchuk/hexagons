@@ -1,5 +1,4 @@
-module Hexagons.Tests
-
+module Hexagons.Tests exposing (..)
 
 import String
 
