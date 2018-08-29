@@ -1,24 +1,4 @@
-module Hexagons exposing
-    ( Model
-    , Msg(..)
-    , cellHeight
-    , cellWidth
-    , emptyModel
-    , getCell
-    , getCellKey
-    , hexGrid
-    , init
-    , layout
-    , main
-    , mapPolygonCorners
-    , pointToStringCoords
-    , pointsToString
-    , svgHeight
-    , svgWidth
-    , update
-    , view
-    , viewBoxStringCoords
-    )
+module MapExample exposing (main)
 
 import Browser
 import Dict

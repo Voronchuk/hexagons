@@ -3,7 +3,7 @@
     "name": "Voronchuk/hexagons",
     "summary": "Hexagonal grids and tools to build hex maps and layouts",
     "license": "MIT",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "exposed-modules": [
         "Hexagons.Hex",
         "Hexagons.Layout",
@@ -17,5 +17,7 @@
         "elm/json": "1.0.0 <= v < 2.0.0",
         "elm/svg": "1.0.0 <= v < 2.0.0"
     },
-    "test-dependencies": {}
+    "test-dependencies": {
+        "elm-explorations/test": "1.0.0 <= v < 2.0.0"
+    }
 }
