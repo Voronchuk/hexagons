@@ -1,4 +1,4 @@
-module Hexagons.Tests.Map exposing (map)
+module MapTest exposing (map)
 
 import Dict exposing (Dict)
 import Expect

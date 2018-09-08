@@ -1,4 +1,4 @@
-module Hexagons.Tests.Layout exposing (layout)
+module LayoutTest exposing (layout)
 
 import Dict exposing (Dict)
 import Expect
@@ -45,8 +45,8 @@ layout =
                     |> Expect.equal [ ( 69.28, 50 ), ( 60.62, 55 ), ( 51.96, 50 ), ( 51.96, 40 ), ( 60.62, 35 ), ( 69.28, 40 ) ]
         , test "Draw a line between 2 Hexes returning a list of Hex connections" <|
             \_ ->
-                Hexagons.Layout.drawLine (IntCubeHex ( 2, 3, -5 )) (IntCubeHex ( 3, 3, -5 ))
-                    |> Expect.equal [ IntCubeHex ( 3, 3, -6 ) ]
+                Hexagons.Layout.drawLine (IntCubeHex ( 2, 3, -5 )) (IntCubeHex ( 3, 3, -6 ))
+                    |> Expect.equal [ IntCubeHex ( 2, 3, -5 ), IntCubeHex ( 3, 3, -6 ) ]
         , test "Draw a circle with the given radius around the Hex" <|
             \_ ->
                 (List.length <| Hexagons.Layout.drawCircle (IntCubeHex ( 2, 3, -5 )) 2)

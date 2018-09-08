@@ -1,4 +1,4 @@
-module Hexagons.Tests.Hex exposing (hex)
+module HexTest exposing (hex)
 
 import Dict exposing (Dict)
 import Expect
@@ -62,10 +62,6 @@ hex =
             \_ ->
                 (Hexagons.Hex.intR << Hexagons.Hex.intFactory) ( 2, 3 )
                     |> Expect.equal 3
-        , test "Get s Int coordinate from Hex" <|
-            \_ ->
-                (Hexagons.Hex.intS << Hexagons.Hex.intFactory) ( 2, 3 )
-                    |> Expect.equal -5
         , test "Get s Int coordinate from Hex" <|
             \_ ->
                 (Hexagons.Hex.intS << Hexagons.Hex.intFactory) ( 2, 3 )

@@ -44,7 +44,7 @@ See <http://www.redblobgames.com/grids/hexagons/implementation.html> for referen
 -}
 
 import Debug
-import Hexagons.Hex exposing (Hex, add)
+import Hexagons.Hex exposing (Hex(..), add)
 import List
 
 
@@ -301,13 +301,37 @@ drawLine a b =
         step =
             1.0 / max n 1.0
 
+        aq =
+            Hexagons.Hex.q a
+
+        ar =
+            Hexagons.Hex.r a
+
+        as_ =
+            Hexagons.Hex.s a
+
+        bq =
+            Hexagons.Hex.q b
+
+        br =
+            Hexagons.Hex.r b
+
+        bs =
+            Hexagons.Hex.s b
+
+        a_nudge =
+            FloatCubeHex ( aq + 1.0e-6, ar + 1.0e-6, as_ - 2.0e-6 )
+
+        b_nudge =
+            FloatCubeHex ( bq + 1.0e-6, br + 1.0e-6, bs - 2.0e-6 )
+
         float_steps =
             List.map toFloat (List.range 0 (truncate n))
 
         steps =
             List.map ((*) step) float_steps
     in
-    List.map (Hexagons.Hex.toIntHex << hexLerp a b) steps
+    List.map (Hexagons.Hex.toIntHex << hexLerp a_nudge b_nudge) steps
 
 
 {-| Draw the circle of a defined redius with the hex in a center
