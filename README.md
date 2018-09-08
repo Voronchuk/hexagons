@@ -5,7 +5,7 @@ Installation:
     
     elm-package install Voronchuk/hexagons
 
-* [API docs](http://package.elm-lang.org/packages/Voronchuk/hexagons/3.0.0)
+* [API docs](http://package.elm-lang.org/packages/Voronchuk/hexagons/3.0.2)
 
 # Testing
 The code was based on [Red Blob Games](http://www.redblobgames.com/grids/hexagons/) material, so tests were written for documentation purposes and use-cases.
