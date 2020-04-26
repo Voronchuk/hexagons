@@ -3,6 +3,7 @@ module Hexagons.Map exposing
     , hashHex
     , getHex
     , rectangularPointyTopMap
+    , rectangularFlatTopMap
     )
 
 {-| This module solves the problem of generating and storing the Map data. We are using Elm dictionary as the Map storage engine with Hex coordinate tuple as the key.
@@ -100,6 +101,41 @@ rectangularPointyTopMap height width =
         allLines =
             List.concat <|
                 List.map widthRowLine heightLine
+
+        makeDictRecord : Hex -> ( Hash, Hex )
+        makeDictRecord hex =
+            ( hashHex hex, hex )
+    in
+    Dict.fromList <| List.map makeDictRecord allLines
+
+{-| Generate Map of rectangular shape given its height and width
+-}
+rectangularFlatTopMap : Int -> Int -> Map
+rectangularFlatTopMap height width =
+    let
+        widthLine =
+            List.range 0 width
+
+        heightLine =
+            List.range 0 height
+
+        createHex : Int -> Int -> Hex
+        createHex q r =
+            Hexagons.Hex.intFactory ( q, r )
+
+        offsetHeight : Int -> Int -> Int
+        offsetHeight q r =
+            r - (q // 2)
+
+        widthColumnLine : Int -> List Hex
+        widthColumnLine q =
+            List.map (createHex q) <|
+                List.map (offsetHeight q) heightLine
+
+        allLines : List Hex
+        allLines =
+            List.concat <|
+                List.map widthColumnLine widthLine
 
         makeDictRecord : Hex -> ( Hash, Hex )
         makeDictRecord hex =

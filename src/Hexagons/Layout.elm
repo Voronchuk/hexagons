@@ -1,6 +1,7 @@
 module Hexagons.Layout exposing
     ( Point, Orientation, Layout
     , orientationLayoutPointy
+    , orientationLayoutFlat
     , hexToPoint, pointToHex
     , hexToOffset, offsetToHex
     , polygonCorners
@@ -17,9 +18,9 @@ See <http://www.redblobgames.com/grids/hexagons/implementation.html> for referen
 @docs Point, Orientation, Layout
 
 
-# Contants
+# Constants
 
-@docs orientationLayoutPointy
+@docs orientationLayoutPointy, orientationLayoutFlat
 
 
 # Hex to point and point to hex conversions
@@ -99,7 +100,7 @@ precision division number =
     (toFloat << round) (number * k) / k
 
 
-{-| Contant definition of pointy hexagon orientation
+{-| Constant definition of pointy hexagon orientation
 -}
 orientationLayoutPointy : Orientation
 orientationLayoutPointy =
@@ -118,6 +119,23 @@ orientationLayoutPointy =
     , start_angle = 0.5
     }
 
+{-| Constant definition for flat-top hexagon orientation -}
+orientationLayoutFlat : Orientation
+orientationLayoutFlat =
+    { forward_matrix =
+        { f0 = 3.0 / 2.0
+        , f1 = 0.0
+        , f2 = sqrt 3.0 / 2
+        , f3 = sqrt 3
+        }
+    , inverse_matrix =
+        { f0 = 2.0 / 3.0
+        , f1 = 0.0
+        , f2 = -1.0 / 3.0
+        , f3 = 1.0 / sqrt 3
+        }
+    , start_angle = 0
+    }
 
 {-| Turn Hex coordinates into a Point location on a Layout
 -}

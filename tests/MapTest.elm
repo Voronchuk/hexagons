@@ -27,4 +27,20 @@ map =
                     |> Dict.diff (Hexagons.Map.rectangularPointyTopMap 2 2)
                     |> Dict.isEmpty
                     |> Expect.true "Expect that generated map is the same as sample"
+        , test "Generation of rectangular map with flat-top hexagons" <|
+            \_ ->
+                [ ( ( 0, 0, 0 ), IntCubeHex ( 0, 0, 0 ) )
+                , ( ( 0, 1, -1 ), IntCubeHex ( 0, 1, -1 ) )
+                , ( ( 0, 2, -2 ), IntCubeHex ( 0, 2, -2 ) )
+                , ( ( 1, 0, -1 ), IntCubeHex ( 1, 0, -1 ) )
+                , ( ( 1, 1, -2 ), IntCubeHex ( 1, 1, -2 ) )
+                , ( ( 1, 2, -3 ), IntCubeHex ( 1, 2, -3 ) )
+                , ( ( 2, -1, -1 ), IntCubeHex ( 2, -1, -1 ) )
+                , ( ( 2, 0, -2 ), IntCubeHex ( 2, 0, -2 ) )
+                , ( ( 2, 1, -3 ), IntCubeHex ( 2, 1, -3 ) )
+                ]
+                    |> Dict.fromList
+                    |> Dict.diff (Hexagons.Map.rectangularFlatTopMap 2 2)
+                    |> Dict.isEmpty
+                    |> Expect.true "Expect that generated map is the same as sample"
         ]
