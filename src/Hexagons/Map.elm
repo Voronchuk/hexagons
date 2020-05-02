@@ -24,7 +24,7 @@ See <http://www.redblobgames.com/grids/hexagons/implementation.html> for referen
 
 # Map generators
 
-@docs rectangularPointyTopMap
+@docs rectangularPointyTopMap, rectangularFlatTopMap
 
 -}
 
