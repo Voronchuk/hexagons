@@ -6,8 +6,6 @@ import Hexagons.Hex exposing (..)
 import Hexagons.Layout exposing (..)
 import Hexagons.Map exposing (..)
 import Html exposing (Html)
-import Json.Decode as Json
-import String
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
 import Svg.Events exposing (..)

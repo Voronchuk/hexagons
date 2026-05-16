@@ -8,7 +8,7 @@ module Hexagons.Layout exposing
     , drawLine, drawCircle
     )
 
-{-| The next major piece of functionality we need is a way to convert between hex coordinates and screen coordinates. There’s a pointy top layout and a flat top hex layout. The conversion uses a matrix as well as the inverse of the matrix, so we need a way to store those. Also, for drawing the corners, pointy top starts at 30° and flat top starts at 0°, so we need a place to store that too.
+{-| The next major piece of functionality we need is a way to convert between hex coordinates and screen coordinates. There's a pointy top layout and a flat top hex layout. The conversion uses a matrix as well as the inverse of the matrix, so we need a way to store those. Also, for drawing the corners, pointy top starts at 30° and flat top starts at 0°, so we need a place to store that too.
 
 See <http://www.redblobgames.com/grids/hexagons/implementation.html> for reference.
 
@@ -44,7 +44,6 @@ See <http://www.redblobgames.com/grids/hexagons/implementation.html> for referen
 
 -}
 
-import Debug
 import Hexagons.Hex exposing (Hex(..), add)
 import List
 
